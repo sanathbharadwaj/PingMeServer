@@ -5,7 +5,7 @@ Parse.Cloud.define('hello', function(req, res) {
 
 Parse.Cloud.define('sendNotification', function(req, res){
 	var installationId = req.params.installation;
-	var query = new Parse.Query(Parse.installation);
+	var query = new Parse.Query(Parse.Installation);
 	query.equalTo("installationId", installationId);
 
 	Parse.Push.send({
