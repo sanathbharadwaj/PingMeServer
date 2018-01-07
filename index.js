@@ -19,8 +19,8 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'http://localhost:1338/parse',  // Don't forget to change to https if needed
   push: {
     android: {
-      senderId: '492871431831',
-      apiKey: 'AAAAcsFtNpc:APA91bHUDvlOuggAM_VoYv9t2Wkko4m255354azzZKygHvzeU6WhU2kY01ovYNTl6zEI7LgCpuxOx2HdtadrZkLHyvYQl5GM9RXXoYFcSItL49xb_gc7lHF7YZC1xCMyOoaJ_joWCCJ1'
+      senderId: '166216835986',
+      apiKey: 'AAAAJrNLo5I:APA91bEs_p4vf1A_t8vY0HEb-BdsOvid9MmTQQM7XLBpSP7IocfO_NAScmFW2qEnHxKobwcix-XKJ-Pehv6_FG6LeyBmoIobgt23AFA4885UAIBphJOuZlZ2LGkpHPdlOfB7TTkcmZd3'
     }
 },
   liveQuery: {
