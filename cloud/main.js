@@ -14,7 +14,7 @@ Parse.Cloud.define('sendNotification', function(req, res){
     // Do something with the returned Parse.Object values
     var object = results[0];
     var id = object.get("insId");
-    pushNotification(id);
+    pushNotification(id, req);
   },
   error: function(error) {
     alert("Error: " + error.code + " " + error.message);
@@ -25,12 +25,12 @@ Parse.Cloud.define('sendNotification', function(req, res){
 function pushNotification(installationId){
 	var query = new Parse.Query(Parse.Installation);
 	query.equalTo("installationId", installationId);
-
+	console.log("My alert:" + req.params.name);
 	Parse.Push.send({
   	where: query,
   	data: {
   		title : "New Ping",
-    	alert: req.params.mobileNo
+    	alert: req.params.name
   		}
 }, {
 	useMasterKey: true,
