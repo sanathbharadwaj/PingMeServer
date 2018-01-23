@@ -46,3 +46,27 @@ function pushNotification(installationId){
 });
 }
 });
+
+Parse.Cloud.define('notificationToAll', function(req, res){
+	var query = new Parse.Query(Parse.Installation);
+	//query.equalTo("installationId", installationId);
+	//console.log("My alert:" + req.params.name);
+	Parse.Push.send({
+  	where: query,
+  	data: {
+  		title : req.params.title,
+    	alert: req.params.message
+  		}
+}, {
+	useMasterKey: true,
+
+  success: function() {
+    // Push was successful
+    res.success(1);
+  },
+  error: function(error) {
+    // Handle error
+    res.error("Failed to send the push");
+  }
+});
+});
