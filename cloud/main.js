@@ -17,7 +17,7 @@ Parse.Cloud.define('sendNotification', function(req, res){
     pushNotification(id, req);
   },
   error: function(error) {
-    alert("Error: " + error.code + " " + error.message);
+    res.error(0);
   }
 	});
 
@@ -25,12 +25,12 @@ Parse.Cloud.define('sendNotification', function(req, res){
 function pushNotification(installationId){
 	var query = new Parse.Query(Parse.Installation);
 	query.equalTo("installationId", installationId);
-	console.log("My alert:" + req.params.name);
+	console.log("My alert:" + req.params.title);
 	Parse.Push.send({
   	where: query,
   	data: {
-  		title : "New Ping",
-    	alert: req.params.name
+  		title : req.params.title,
+    	alert: req.params.message
   		}
 }, {
 	useMasterKey: true,
@@ -41,7 +41,7 @@ function pushNotification(installationId){
   },
   error: function(error) {
     // Handle error
-    res.error("Failed to send the push");
+    res.error(0);
   }
 });
 }
