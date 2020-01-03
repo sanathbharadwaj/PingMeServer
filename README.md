@@ -1,2 +1,2 @@
-# PingMeServer
-This is the server files for self hosted parse-server for PingMe application.
+# Cognichamp Server
+These are the server files for self hosted parse-server for Cognichamp application.
